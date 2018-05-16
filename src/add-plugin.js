@@ -1,9 +1,8 @@
 const debug = require('debug')('add-typescript-to-cypress')
 const chalk = require('chalk')
 const terminalBanner = require('terminal-banner').terminalBanner
-const amDependency = require('am-i-a-dependency')()
 
-if (amDependency) {
+function installCypress(root) {
   debug('current folder', process.cwd())
 
   const fs = require('fs')
@@ -16,7 +15,6 @@ if (amDependency) {
 
   // during NPM post install phase it is running in
   // node_modules/@bahmutov/add-typescript-to-cypress
-  const root = path.join(process.cwd(), '..', '..', '..')
   const cypressFolder = path.join(root, 'cypress')
   const pluginsFolder = path.join(cypressFolder, 'plugins')
   const ourPreprocessorFilename = path.join(
@@ -72,6 +70,8 @@ if (amDependency) {
   terminalBanner('adding TypeScript plugin for Cypress')
   addPluginFile()
   addTSConfigFile()
-} else {
-  debug('nothing to do, not a dependency install')
 }
+
+module.exports = {
+  installCypress: installCypress
+};

@@ -1,7 +1,7 @@
 {
   "name": "@bahmutov/add-typescript-to-cypress",
   "description": "Quickly adds TypeScript spec support to Cypress",
-  "version": "0.0.0-development",
+  "version": "2.0.0",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/add-typescript-to-cypress/issues",
   "config": {
